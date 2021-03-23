@@ -4,7 +4,7 @@ Run gprMax in a Docker container.
 
 ## Why?
 
-* Straight forward installation.
+* Straightforward installation.
 * Ideal for deployments to containerised web services like Amazon ECS.
 
 ## Installation
