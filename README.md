@@ -11,14 +11,14 @@ Run gprMax in a Docker container.
 
 First, install [Docker](https://docs.docker.com/get-docker/)
 
-Next we build the image from the Dockerfile:
+Next we build an image from the Dockerfile. We will run this image later to run our model:
 ```
 sudo docker build --tag docker-gprmax .
 ```
 
 ## Running a model
 
-To run a model, we run the image in a Docker container. This process effectively runs the model `model.in` and saves the usual gprMax model outputs, geometry files etc.. in this directory.
+To run a model, we run the image in a Docker container. This process effectively runs the model `model.in` and saves the usual gprMax model outputs, geometry files etc.. to this directory.
 
 We run the model using:
 
