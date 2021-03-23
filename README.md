@@ -28,4 +28,15 @@ sudo docker run \
   docker-gprmax
 ```
 
+Our directory now contains the `model.in` outputs:
+
+```
+.
+├── Dockerfile
+├── README.md
+├── cylinder_half_space.vti
+├── model.in
+├── model.out
+└── requirements.txt
+```
 To run different models, simply edit the `model.in` file, and re-run.
