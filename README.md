@@ -4,31 +4,22 @@ Run gprMax in a Docker container.
 
 ## Why?
 
-* Straightforward installation.
+* Install and run gprMax models with a single command.
 * Ideal for deployments to containerised web services like Amazon ECS.
 
 ## Installation
 
-First, install [Docker](https://docs.docker.com/get-docker/)
-
-Next we build an image from the Dockerfile. We will run this image later to run our model:
-```
-sudo docker build --tag docker-gprmax .
-```
+Install [Docker](https://docs.docker.com/get-docker/)
 
 ## Running a model
 
-To run a model, we run the image in a Docker container. This process effectively runs the model `model.in` and saves the usual gprMax model outputs, geometry files etc.. to this directory.
-
-We run the model using:
+To run the example gprMax model ```model.in``` given in this directory. Run the following command:
 
 ```bash
-sudo docker run \
-  --mount type=bind,source="$(pwd)",target=/app \
-  docker-gprmax
+docker run -v "$PWD":/app jasminium/dockergprmax:latest model.in
 ```
 
-Our directory now contains the `model.in` outputs:
+gprMax will now run inside the container and the output files will be saved in the current directory.
 
 ```
 .
@@ -39,4 +30,41 @@ Our directory now contains the `model.in` outputs:
 ├── model.out
 └── requirements.txt
 ```
-To run different models, simply edit the `model.in` file, and re-run.
+
+The command has 3 actions:
+
+1. Pull the jasminium/dockergprmax image from Docker Hub (if it's the first time the command has been run).
+2. Mount the local directory in the Docker container under /app.
+3. Run jasminium/dockergprmax image in a container with the specified parameters parameters.
+
+## Additional Parameters
+gprMax parameters can be added to the end of above command. For example, the geometry of the simulation can be tested without running gprMax by running
+
+```bash
+docker run -v "$PWD":/app jasminium/dockergprmax:latest model.in --geometry-only
+```
+
+In this case the only output is the geometry file ```cylinder_half_space.vti```
+
+```
+.
+├── Dockerfile
+├── README.md
+├── cylinder_half_space.vti
+├── model.in
+└── requirements.txt
+```
+
+## Rebuild the image
+
+Currently the docker image is pulled from Docker Hub. To rebuild the image run.
+
+```
+docker build -t dockergprmax:latest .
+```
+
+Run new image:
+
+```bash
+docker run -v "$PWD":/app dockergprmax:latest model.in
+```
