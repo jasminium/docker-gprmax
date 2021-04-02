@@ -56,6 +56,8 @@ The command has 3 actions:
 2. Mount the local directory in the Docker container under /app.
 3. Run gprMax on the jasminium/dockergprmax image in a container with the specified parameters.
 
+The container can be run from anywhere on your system. i.e. you do not need the Dockerfile. Just make sure you have a model file in the same directory as you're running the container.
+
 ## Additional Parameters
 standard gprMax parameters can be added to the end of above command. For example, the geometry of the simulation can be tested without running gprMax by running
 
