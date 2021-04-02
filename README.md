@@ -11,14 +11,26 @@ Run [gprMax](https://github.com/gprmax/gprMax) models in a Docker container.
 
 Install [Docker](https://docs.docker.com/get-docker/)
 
+Clone this repository
+
+```
+git clone https://github.com/jasminium/docker-gprmax.git 
+```
+
+and navigate to the repository on your system
+
+```
+cd docker-gprmax
+```
+
 ## Running a model
 
 This repository contains an example model, ```model.in``` which simulates the response of a Hertzian dipole over a half-space containing a metal cylinder.
 
-To run the model enter the following command in a terminal:
+To run the model enter the following command in a Terminal (Linux/Mac OS) or Windows PowerShell (Windows):
 
 ```bash
-docker run -v "$PWD":/app jasminium/dockergprmax:latest model.in
+docker run -v ${PWD}:/app jasminium/dockergprmax:latest model.in
 ```
 
 gprMax will now run inside a docker container. The simulation output files will be saved in the current directory.
@@ -35,7 +47,7 @@ gprMax will now run inside a docker container. The simulation output files will 
 Different models can be run by copying the `.in` file into the current directory, running the above command and replacing ```model.in``` with the name of the new model. For example, the command for a new model ```my_new_model.in``` is:
 
 ```bash
-docker run -v "$PWD":/app jasminium/dockergprmax:latest my_new_model.in
+docker run -v ${PWD}:/app jasminium/dockergprmax:latest my_new_model.in
 ```
 
 The command has 3 actions:
@@ -48,7 +60,7 @@ The command has 3 actions:
 standard gprMax parameters can be added to the end of above command. For example, the geometry of the simulation can be tested without running gprMax by running
 
 ```bash
-docker run -v "$PWD":/app jasminium/dockergprmax:latest model.in --geometry-only
+docker run -v ${PWD}:/app jasminium/dockergprmax:latest model.in --geometry-only
 ```
 
 In this case the only output is the geometry file ```cylinder_half_space.vti```
@@ -73,7 +85,7 @@ docker build -t dockergprmax:latest .
 Run new image:
 
 ```bash
-docker run -v "$PWD":/app dockergprmax:latest model.in
+docker run -v ${PWD}:/app dockergprmax:latest model.in
 ```
 
 ## Using gprMax? Cite us
