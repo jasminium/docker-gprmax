@@ -35,7 +35,7 @@ The command has 3 actions:
 
 1. Pull the jasminium/dockergprmax image from Docker Hub (if it's the first time the command has been run).
 2. Mount the local directory in the Docker container under /app.
-3. Run jasminium/dockergprmax image in a container with the specified parameters parameters.
+3. Run jasminium/dockergprmax image in a container with the specified parameters.
 
 ## Additional Parameters
 gprMax parameters can be added to the end of above command. For example, the geometry of the simulation can be tested without running gprMax by running
