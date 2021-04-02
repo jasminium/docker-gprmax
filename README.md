@@ -4,7 +4,7 @@ Run [gprMax](https://github.com/gprmax/gprMax) models in a Docker container.
 
 ## Why?
 
-* Install and run gprMax models with a single command on Windows, Mac OS, and Linux.
+* Install and run gprMax models easily on Windows, Mac OS, and Linux.
 * Ideal for deployments to containerised web services like Amazon ECS.
 
 ## Installation
